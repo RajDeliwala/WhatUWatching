@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Show.Core.Models;
+using Show.Core.ViewModels;
 using Show.DataAccess.InMemory;
 
 namespace Show.WebUI.Controllers
@@ -12,11 +13,13 @@ namespace Show.WebUI.Controllers
     {
         // Getting context
         ShowRepo context;
+        ShowSeasonRepo showseasonContext;
 
         // Default constructor
         public ShowManagerController()
         {
             context = new ShowRepo();
+            showseasonContext = new ShowSeasonRepo();
         }
 
         // GET: ShowManager
@@ -29,8 +32,11 @@ namespace Show.WebUI.Controllers
         // Create shows function
         public ActionResult Create()
         {
-            ShowModel show = new ShowModel();
-            return View(show);
+            ShowManagerViewModel viewModel = new ShowManagerViewModel();
+
+            viewModel.show = new ShowModel();
+            viewModel.showSeason = showseasonContext.Collection();
+            return View(viewModel);
         }
 
         // Create show function with a show parameter
@@ -60,7 +66,10 @@ namespace Show.WebUI.Controllers
             }
             else
             {
-                return View(show);
+                ShowManagerViewModel viewModel = new ShowManagerViewModel();
+                viewModel.show = show;
+                viewModel.showSeason = showseasonContext.Collection();
+                return View(viewModel);
             }
         }
 
@@ -79,8 +88,6 @@ namespace Show.WebUI.Controllers
                 {
                     return View(show);
                 }
-
-                showToEdit.Id = show.Id;
                 showToEdit.Name = show.Name;
                 showToEdit.Description = show.Description;
                 showToEdit.Genere1 = show.Genere1;

@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShowManagerController.cs" />
+    <Compile Include="Controllers\ShowSeasonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +241,10 @@
     <Content Include="Views\ShowManager\Edit.cshtml" />
     <Content Include="Views\ShowManager\Delete.cshtml" />
     <Content Include="Views\ShowManager\Create.cshtml" />
+    <Content Include="Views\ShowSeason\Index.cshtml" />
+    <Content Include="Views\ShowSeason\Create.cshtml" />
+    <Content Include="Views\ShowSeason\Edit.cshtml" />
+    <Content Include="Views\ShowSeason\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
