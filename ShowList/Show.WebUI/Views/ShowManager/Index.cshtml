@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Show.Core.Models.ShowModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genere1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genere2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genere3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genere4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genere5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PremieredSeason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EpisodeCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genere1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genere2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genere3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genere4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genere5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PremieredSeason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EpisodeCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Studio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

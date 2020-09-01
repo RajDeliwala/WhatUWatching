@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShowManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ShowManager\Index.cshtml" />
+    <Content Include="Views\ShowManager\Edit.cshtml" />
+    <Content Include="Views\ShowManager\Delete.cshtml" />
+    <Content Include="Views\ShowManager\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,6 +256,24 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Show.Core\Show.Core.csproj">
+      <Project>{789b27e9-e1bd-481a-bd95-f7369113d93b}</Project>
+      <Name>Show.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Show.DataAccess.InMemory\Show.DataAccess.InMemory.csproj">
+      <Project>{a4e17344-c343-44e8-a14a-0aafc8329cd8}</Project>
+      <Name>Show.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Show.DataAccess.SQL\Show.DataAccess.SQL.csproj">
+      <Project>{78a059b2-5db9-4f81-b3fe-3e5f0511531d}</Project>
+      <Name>Show.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Show.Services\Show.Services.csproj">
+      <Project>{3e3ff8d7-3c31-4227-b0da-723ae021bc74}</Project>
+      <Name>Show.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
