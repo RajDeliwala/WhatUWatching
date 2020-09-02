@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace Show.Core.Models
 {
-    public class ShowSeason
+    public class ShowSeason : BaseEntity
     {
-        // Variables for Show Seasons
-        public string Id { get; set; }
+       // Season the show aired
         public string ShowSeasonAired { get; set; }
-
-        // Default Constructor
-        public ShowSeason() 
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
 
     }
 }

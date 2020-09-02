@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Show.Core.Models
 {
-    public class ShowModel
+    public class ShowModel : BaseEntity
     {
         /** Show variables that need to be recorded **/
 
-        //Unique Id per show
-        public string Id { get; set; }
+        
         //Name of the show
         [DisplayName("Show Name")]
         public string Name { get; set; }
@@ -38,11 +37,8 @@ namespace Show.Core.Models
         public string Studio { get; set; }
 
 
-        //Constructor to initialize a random ID per new product
-        public ShowModel()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
+        
+        
 
 
 

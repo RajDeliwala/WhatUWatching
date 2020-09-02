@@ -11,12 +11,12 @@ namespace Show.WebUI.Controllers
     public class ShowSeasonController : Controller
     {
         // Getting context
-        ShowSeasonRepo context;
+        InMemoryRepo<ShowSeason> context;
 
         // Default constructor
         public ShowSeasonController()
         {
-            context = new ShowSeasonRepo();
+            context = new InMemoryRepo<ShowSeason>();
         }
 
         // GET: ShowManager
