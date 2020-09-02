@@ -1,6 +1,7 @@
 using Show.Core.Contracts;
 using Show.Core.Models;
 using Show.DataAccess.InMemory;
+using Show.DataAccess.SQL;
 using System;
 
 using Unity;
@@ -45,8 +46,8 @@ namespace Show.WebUI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IRepo<ShowModel>, InMemoryRepo<ShowModel>>();
-            container.RegisterType<IRepo<ShowSeason>, InMemoryRepo<ShowSeason>>();
+            container.RegisterType<IRepo<ShowModel>, SQLRepository<ShowModel>>();
+            container.RegisterType<IRepo<ShowSeason>, SQLRepository<ShowSeason>>();
         }
     }
 }
