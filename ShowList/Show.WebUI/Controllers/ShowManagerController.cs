@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Show.Core.Contracts;
 using Show.Core.Models;
 using Show.Core.ViewModels;
 using Show.DataAccess.InMemory;
@@ -12,14 +13,14 @@ namespace Show.WebUI.Controllers
     public class ShowManagerController : Controller
     {
         // Getting context
-        InMemoryRepo<ShowModel> context;
-        InMemoryRepo<ShowSeason> showseasonContext;
+        IRepo<ShowModel> context;
+        IRepo<ShowSeason> showseasonContext;
 
         // Default constructor
-        public ShowManagerController()
+        public ShowManagerController(IRepo<ShowModel> showContext, IRepo<ShowSeason> showSeasonContext)
         {
-            context = new InMemoryRepo<ShowModel>();
-            showseasonContext = new InMemoryRepo<ShowSeason>();
+            context = showContext;
+            showseasonContext = showSeasonContext;
         }
 
         // GET: ShowManager

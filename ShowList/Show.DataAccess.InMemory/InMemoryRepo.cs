@@ -1,4 +1,5 @@
 ﻿using Show.Core.Models;
+using Show.Core.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Show.DataAccess.InMemory
 {
-    public class InMemoryRepo<T> where T : BaseEntity 
+    public class InMemoryRepo<T> : IRepo<T> where T : BaseEntity
     {
         // Set-up
         ObjectCache cache = MemoryCache.Default;
