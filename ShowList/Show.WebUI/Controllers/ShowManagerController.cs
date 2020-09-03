@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -42,7 +43,7 @@ namespace Show.WebUI.Controllers
 
         // Create show function with a show parameter
         [HttpPost]
-        public ActionResult Create(ShowModel show)
+        public ActionResult Create(ShowModel show, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -50,6 +51,11 @@ namespace Show.WebUI.Controllers
             }
             else
             {
+                if(file != null)
+                {
+                    show.Image = show.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ShowImages//") + show.Image);
+                }
                 context.Insert(show);
                 context.Commit();
 
@@ -76,7 +82,7 @@ namespace Show.WebUI.Controllers
 
         // Edit show function with a show parameter
         [HttpPost]
-        public ActionResult Edit(ShowModel show, string Id)
+        public ActionResult Edit(ShowModel show, string Id, HttpPostedFileBase file)
         {
             ShowModel showToEdit = context.Find(Id);
             if (showToEdit == null)
@@ -89,6 +95,12 @@ namespace Show.WebUI.Controllers
                 {
                     return View(show);
                 }
+                if (file != null)
+                {
+                    showToEdit.Image = show.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ShowImages//") + showToEdit.Image);
+                }
+
                 showToEdit.Name = show.Name;
                 showToEdit.Description = show.Description;
                 showToEdit.Genere1 = show.Genere1;
@@ -96,7 +108,6 @@ namespace Show.WebUI.Controllers
                 showToEdit.Genere3 = show.Genere3;
                 showToEdit.Genere4 = show.Genere4;
                 showToEdit.Genere5 = show.Genere5;
-                showToEdit.Image = show.Image;
                 showToEdit.EpisodeCount = show.EpisodeCount;
                 showToEdit.PremieredSeason = show.PremieredSeason;
                 showToEdit.Studio = show.Studio;
