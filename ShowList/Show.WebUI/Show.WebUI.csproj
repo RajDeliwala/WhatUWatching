@@ -265,6 +265,7 @@
     <Content Include="Views\ShowSeason\Create.cshtml" />
     <Content Include="Views\ShowSeason\Edit.cshtml" />
     <Content Include="Views\ShowSeason\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

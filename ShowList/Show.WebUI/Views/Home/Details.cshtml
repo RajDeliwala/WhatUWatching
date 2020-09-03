@@ -1,0 +1,95 @@
+﻿@model Show.Core.Models.ShowModel
+
+@{
+    ViewBag.Title = Model.Name + " Details";
+}
+
+
+
+<h2>@Html.DisplayFor(Model => Model.Name)</h2>
+
+<div>
+    <div class="col-md-2">
+        <img class="img-responsive" src="~/Content/ShowImages/@Model.Image"/>
+    </div>
+    <div class="col-md-10">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genere1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genere1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genere2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genere2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genere3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genere3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genere4)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genere4)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genere5)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genere5)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PremieredSeason)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PremieredSeason)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EpisodeCount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EpisodeCount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Studio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Studio)
+            </dd>
+            <dt></dt>
+            <dd><a href="#" class="btn btn-default">Add to watch list</a></dd>
+
+            <dd>@Html.ActionLink("Back to List", "Index")</dd>
+
+        </dl>
+    </div>
+</div>
+<div class="col-md-12 clearfix"</div>
