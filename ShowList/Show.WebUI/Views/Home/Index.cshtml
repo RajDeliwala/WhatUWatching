@@ -1,10 +1,26 @@
-﻿@model IEnumerable<Show.Core.Models.ShowModel>
+﻿@model Show.Core.ViewModels.ShowListView
 @{
     ViewBag.Title = "Home Page";
 }
 
 <h1>Shows</h1>
-@foreach (var item in Model)
+<div class="col-md-2">
+    <h4>Filter by Season</h4>
+    <div class="list-group">
+        @Html.ActionLink("All", "Index", null, new { @class = Request["Season"] == null ? "list-group-item active" : "list-group-item"})
+        @foreach (var cat in Model.showSeason)
+        {
+            @Html.ActionLink(cat.ShowSeasonAired, "Index", new {Season = cat.ShowSeasonAired }, new { @class = Request["Season"] == cat.ShowSeasonAired ? "list-group-item active" : "list-group-item" })
+        }
+    </div>
+
+</div>
+
+
+<div class="col-md-10">
+
+
+@foreach (var item in Model.shows)
 {
     <div class="col-md-4" style="height:450px;padding:10px;margin:10px;border: solid thin whitesmoke">
         <div class="col-md-12">
@@ -25,4 +41,5 @@
 
     </div>
 }
+</div>
 <div class="col-md-12 clearfix"/>

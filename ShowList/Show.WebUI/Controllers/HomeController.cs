@@ -1,5 +1,6 @@
 ﻿using Show.Core.Contracts;
 using Show.Core.Models;
+using Show.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Show.WebUI.Controllers
         // Default constructor
         public HomeController(IRepo<ShowModel> showContext, IRepo<ShowSeason> showSeasonContext)
         {
-            context = showContext;
+            this.context = showContext;
             showseasonContext = showSeasonContext;
         }
 
@@ -36,10 +37,23 @@ namespace Show.WebUI.Controllers
         }
 
 
-        public ActionResult Index()
+        public ActionResult Index(string Season = null)
         {
             List<ShowModel> shows = context.Collection().ToList();
-            return View(shows);
+            List<ShowSeason> showSeason = showseasonContext.Collection().ToList();
+            if (Season == null)
+            {
+                shows = context.Collection().ToList();
+            }
+            else
+            {
+                shows = context.Collection().Where(p => p.PremieredSeason == Season).ToList();
+            }
+
+            ShowListView model = new ShowListView();
+            model.shows = shows;
+            model.showSeason = showSeason;
+            return View(model);
         }
 
         public ActionResult About()
