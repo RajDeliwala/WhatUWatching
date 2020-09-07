@@ -53,6 +53,10 @@
     <Compile Include="Migrations\202009022223353_Initial.Designer.cs">
       <DependentUpon>202009022223353_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009072040532_AddWatchList.cs" />
+    <Compile Include="Migrations\202009072040532_AddWatchList.Designer.cs">
+      <DependentUpon>202009072040532_AddWatchList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLRepository.cs" />
@@ -70,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009022223353_Initial.resx">
       <DependentUpon>202009022223353_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009072040532_AddWatchList.resx">
+      <DependentUpon>202009072040532_AddWatchList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

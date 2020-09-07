@@ -45,6 +45,8 @@
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\ShowModel.cs" />
     <Compile Include="Models\ShowSeason.cs" />
+    <Compile Include="Models\WatchList.cs" />
+    <Compile Include="Models\WatchListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ShowListView.cs" />
     <Compile Include="ViewModels\ShowManagerViewModel.cs" />
