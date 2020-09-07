@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Show.Core.ViewModels;
 
 namespace Show.Services
 {
-    public class WatchListService
+    public class WatchListService : IWatchListService
     {
         IRepo<ShowModel> showContext;
         IRepo<WatchList> watchListContext;
@@ -101,7 +102,37 @@ namespace Show.Services
                 watchListContext.Commit();
             }
         }
-        
+
+        //Get list of items
+        public List<WatchListItemViewModel> GetWatchListItems(HttpContextBase httpContext)
+        {
+            WatchList watchlist = GetWatchList(httpContext, false);
+
+            if (watchlist != null)
+            {
+                var result = (from w in watchlist.WatchListItems
+                              join s in showContext.Collection()
+                              on w.ShowId equals s.Id
+                              select new WatchListItemViewModel()
+                              {
+                                  Id = w.ShowId,
+                                  showName = s.Name,
+                                  Image = s.Image,
+                                  showDescription = s.Description,
+                                  showSeason = s.PremieredSeason,
+                                  showStudio = s.Studio,
+                                  showEpisodeCount = s.EpisodeCount
+                              }).ToList();
+
+                return result;
+            }
+            else
+            {
+                return new List<WatchListItemViewModel>();
+            }
+        }
+
+
 
         
 
