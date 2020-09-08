@@ -36,7 +36,7 @@
             <h4>@item.Studio</h4>
         </div>
         <div class="col-md-12">
-            <a href="#" class="btn btn-default">Add to watch list</a>
+            <a href="@Url.Action("AddToWatchList","WatchList", new { Id = item.Id })" class="btn btn-default">Add to Watch List</a>
         </div>
 
     </div>

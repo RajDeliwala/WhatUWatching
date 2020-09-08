@@ -2,6 +2,7 @@ using Show.Core.Contracts;
 using Show.Core.Models;
 using Show.DataAccess.InMemory;
 using Show.DataAccess.SQL;
+using Show.Services;
 using System;
 
 using Unity;
@@ -48,6 +49,9 @@ namespace Show.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepo<ShowModel>, SQLRepository<ShowModel>>();
             container.RegisterType<IRepo<ShowSeason>, SQLRepository<ShowSeason>>();
+            container.RegisterType<IRepo<WatchList>, SQLRepository<WatchList>>();
+            container.RegisterType<IRepo<WatchListItem>, SQLRepository<WatchListItem>>();
+            container.RegisterType<IWatchListService, WatchListService>();
         }
     }
 }

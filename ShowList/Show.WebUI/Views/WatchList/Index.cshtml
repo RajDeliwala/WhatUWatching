@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Show.Core.ViewModels.WatchListItemViewModel>
+
+@{
+    ViewBag.Title = "Watch List";
+}
+
+<h2>WatchList</h2>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.showName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.showSeason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.showStudio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.showEpisodeCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td><img class="img" style="height:50px" src="~/Content/ShowImages/@item.Image"/></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.showName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.showSeason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.showStudio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.showEpisodeCount)
+        </td>
+        <td> 
+            <a href="@Url.Action("RemoveFromWatchList", "WatchList", new { Id = item.Id })" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

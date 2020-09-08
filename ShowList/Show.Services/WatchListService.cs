@@ -32,7 +32,7 @@ namespace Show.Services
         {
             HttpCookie cookie = httpContext.Request.Cookies.Get(WatchListSessionName);
             WatchList watchList = new WatchList();
-            if(cookie != null)
+            if (cookie != null)
             {
                 string watchListId = cookie.Value;
                 if (!string.IsNullOrEmpty(watchListId))
@@ -78,7 +78,7 @@ namespace Show.Services
             WatchList watchList = GetWatchList(httpContext, true);
             WatchListItem show = watchList.WatchListItems.FirstOrDefault(i => i.ShowId == showId);
 
-            if(show == null)
+            if (show == null)
             {
                 show = new WatchListItem()
                 {
@@ -87,20 +87,26 @@ namespace Show.Services
                 };
                 watchList.WatchListItems.Add(show);
             }
+            else
+            {
+
+            }
             watchListContext.Commit();
         }
 
         //Remove show from watch list
+        
         public void RemoveFromWatchList(HttpContextBase httpContext, string itemId)
         {
             WatchList watchList = GetWatchList(httpContext, true);
             WatchListItem item = watchList.WatchListItems.FirstOrDefault(i => i.Id == itemId);
 
-            if(item != null)
+            if (item != null)
             {
                 watchList.WatchListItems.Remove(item);
                 watchListContext.Commit();
             }
+            
         }
 
         //Get list of items

@@ -85,7 +85,7 @@
                 @Html.DisplayFor(model => model.Studio)
             </dd>
             <dt></dt>
-            <dd><a href="#" class="btn btn-default">Add to watch list</a></dd>
+            <dd><a href="@Url.Action("AddToWatchList","WatchList", new { Id = Model.Id })" class="btn btn-default">Add to watch list</a></dd>
 
             <dd>@Html.ActionLink("Back to List", "Index")</dd>
 
