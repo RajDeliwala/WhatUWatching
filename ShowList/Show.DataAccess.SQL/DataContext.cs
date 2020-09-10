@@ -22,5 +22,7 @@ namespace Show.DataAccess.SQL
         public DbSet<WatchList> WatchLists { get; set; }
 
         public DbSet<WatchListItem> WatchListItems { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
     }
 }

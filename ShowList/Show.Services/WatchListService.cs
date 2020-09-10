@@ -14,6 +14,7 @@ namespace Show.Services
     {
         IRepo<ShowModel> showContext;
         IRepo<WatchList> watchListContext;
+        //IRepo<WatchListItem> watchListItemsContext;
 
         public const string WatchListSessionName = "ShowWatchList";
 
@@ -22,6 +23,7 @@ namespace Show.Services
         {
             this.showContext = ShowContext;
             this.watchListContext = WatchListContext;
+            //this.watchListItemsContext = watchListItemsContext;
         }
 
 
@@ -87,10 +89,7 @@ namespace Show.Services
                 };
                 watchList.WatchListItems.Add(show);
             }
-            else
-            {
-
-            }
+            
             watchListContext.Commit();
         }
 
@@ -98,15 +97,18 @@ namespace Show.Services
         
         public void RemoveFromWatchList(HttpContextBase httpContext, string itemId)
         {
-            WatchList watchList = GetWatchList(httpContext, true);
-            WatchListItem item = watchList.WatchListItems.FirstOrDefault(i => i.Id == itemId);
+            //watchListItemsContext.Delete(itemId);
+            //watchListItemsContext.Commit();
 
+            WatchList watchList = GetWatchList(httpContext, true);
+            WatchListItem item = watchList.WatchListItems.FirstOrDefault(i => i.ShowId == itemId);
             if (item != null)
             {
                 watchList.WatchListItems.Remove(item);
+
                 watchListContext.Commit();
             }
-            
+
         }
 
         //Get list of items
@@ -138,10 +140,7 @@ namespace Show.Services
             }
         }
 
-
-
         
-
 
     }
 }

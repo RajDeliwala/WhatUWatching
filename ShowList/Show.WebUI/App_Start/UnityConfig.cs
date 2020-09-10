@@ -51,6 +51,7 @@ namespace Show.WebUI
             container.RegisterType<IRepo<ShowSeason>, SQLRepository<ShowSeason>>();
             container.RegisterType<IRepo<WatchList>, SQLRepository<WatchList>>();
             container.RegisterType<IRepo<WatchListItem>, SQLRepository<WatchListItem>>();
+            container.RegisterType<IRepo<Customer>, SQLRepository<Customer>>();
             container.RegisterType<IWatchListService, WatchListService>();
         }
     }

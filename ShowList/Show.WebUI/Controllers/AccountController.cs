@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Show.Core.Contracts;
+using Show.Core.Models;
 using Show.WebUI.Models;
 
 namespace Show.WebUI.Controllers
@@ -17,15 +19,12 @@ namespace Show.WebUI.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IRepo<Customer> customerRepo;
 
-        public AccountController()
+  
+        public AccountController(IRepo<Customer> CustomerRepo)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            this.customerRepo = CustomerRepo;
         }
 
         public ApplicationSignInManager SignInManager
@@ -155,6 +154,19 @@ namespace Show.WebUI.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Register the customer
+                    Customer customer = new Customer()
+                    {
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Email = model.Email,
+                        UserId = user.Id
+                    };
+
+                    customerRepo.Insert(customer);
+                    customerRepo.Commit();
+
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
