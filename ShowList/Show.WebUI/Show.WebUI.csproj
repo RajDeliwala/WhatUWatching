@@ -193,11 +193,13 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShowManagerController.cs" />
     <Compile Include="Controllers\ShowSeasonController.cs" />
     <Compile Include="Controllers\WatchListController.cs" />
+    <Compile Include="Controllers\WatchListManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -373,6 +375,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\WatchList\Checkout.cshtml" />
     <Content Include="Views\WatchList\ThankYou.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\WatchListManager\Index.cshtml" />
+    <Content Include="Views\WatchListManager\GetUpdateWatchList.cshtml" />
+    <Content Include="Views\WatchListManager\WatchListItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

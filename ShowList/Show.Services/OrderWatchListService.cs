@@ -20,6 +20,7 @@ namespace Show.Services
             this.orderContext = OrderContext;
         }
 
+        //Function to create a list of shows into a watch list
         public void CreateOrderWatchList(OrderWatchList baseOrderWatchList, List<WatchListItemViewModel> watchListItems)
         {
             foreach(var item in watchListItems)
@@ -40,5 +41,27 @@ namespace Show.Services
             orderContext.Insert(baseOrderWatchList);
             orderContext.Commit();
         }
+
+
+        //Returns a list of watch lists
+        public List<OrderWatchList> GetOrderWatchLists()
+        {
+            return orderContext.Collection().ToList();
+        }
+
+        //Returns a single watch list
+        public OrderWatchList GetWatchList(string Id)
+        {
+            return orderContext.Find(Id);
+        }
+
+        //Update the watchlist
+        public void UpdateWatchList(OrderWatchList orderWatchList)
+        {
+            orderContext.Update(orderWatchList);
+            orderContext.Commit();
+        }
+
+
     }
 }

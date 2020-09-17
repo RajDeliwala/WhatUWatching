@@ -12,5 +12,16 @@ namespace Show.Core.Contracts
     {
         //OrderWatchList function
         void CreateOrderWatchList(OrderWatchList baseOrderWatchList, List<WatchListItemViewModel> watchListItems);
+
+        //Returns list of all watch lists
+        List<OrderWatchList> GetOrderWatchLists();
+
+        //Returns the single watch list
+        OrderWatchList GetWatchList(string Id);
+
+        //Update watchlist
+        void UpdateWatchList(OrderWatchList orderWatchList);
+
+
     }
 }

@@ -1,0 +1,20 @@
+﻿@{ 
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin Pages</h2>
+<div class="col-md-6">
+    <h4>Show management</h4>
+    <div class="list-group">
+        @Html.ActionLink("Show Seasons", "Index", "ShowSeason", null, new { @class = "list-group-item" })
+        @Html.ActionLink("Shows", "Index", "ShowManager", null, new { @class = "list-group-item" })
+    </div>
+</div>
+
+<div class="col-md-6">
+    <h4>Watch List management</h4>
+    <div class="list-group">
+        @Html.ActionLink("Watch Lists", "Index", "WatchListManager", null, new { @class = "list-group-item" })
+    </div>
+</div>
+<div class="col-md-12 clearfix"></div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Show.Core.Models.OrderWatchListItem>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowSeason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowStudio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowEpisodeCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowSeason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowStudio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowEpisodeCount)
+        </td>
+        <td></td>
+    </tr>
+}
+   
+</table>
