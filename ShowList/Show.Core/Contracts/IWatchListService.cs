@@ -14,6 +14,8 @@ namespace Show.Core.Contracts
 
         void RemoveFromWatchList(HttpContextBase httpContext, string itemId);
 
-        List<WatchListItemViewModel> GetWatchListItems(HttpContextBase httpContext);  
+        List<WatchListItemViewModel> GetWatchListItems(HttpContextBase httpContext);
+
+        void ClearWatchList(HttpContextBase httpContext);
     }
 }

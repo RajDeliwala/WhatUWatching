@@ -140,6 +140,15 @@ namespace Show.Services
             }
         }
 
+
+        //Clear WatchList Service
+        public void ClearWatchList(HttpContextBase httpContext)
+        {
+            WatchList watchList = GetWatchList(httpContext, false);
+            watchList.WatchListItems.Clear();
+            watchListContext.Commit();
+        }
+
         
 
     }

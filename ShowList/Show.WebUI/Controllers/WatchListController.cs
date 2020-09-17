@@ -12,12 +12,14 @@ namespace Show.WebUI.Controllers
     {
 
         IWatchListService watchListService;
+        IOrderWatchList orderWatchListService;
         
 
         //Default Constructor
-        public WatchListController(IWatchListService WatchListService)
+        public WatchListController(IWatchListService WatchListService, IOrderWatchList OrderWatchList)
         {
             this.watchListService = WatchListService;
+            this.orderWatchListService = OrderWatchList;
         }
         // GET: WatchList
         public ActionResult Index()
@@ -37,6 +39,30 @@ namespace Show.WebUI.Controllers
         {
             watchListService.RemoveFromWatchList(this.HttpContext, Id);
             return RedirectToAction("Index");
+        }
+
+        //Return Checkout
+        public ActionResult Checkout()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Checkout(OrderWatchList OrderWatchList)
+        {
+            var wishListItems = watchListService.GetWatchListItems(this.HttpContext);
+            OrderWatchList.ListStatus = "List Created";
+
+            orderWatchListService.CreateOrderWatchList(OrderWatchList, wishListItems);
+            watchListService.ClearWatchList(this.HttpContext);
+
+            return RedirectToAction("ThankYou", new {OrderId = OrderWatchList.Id});
+        }
+
+        public ActionResult ThankYou(string OrderId)
+        {
+            ViewBag.OrderId = OrderId;
+            return View();
         }
 
  

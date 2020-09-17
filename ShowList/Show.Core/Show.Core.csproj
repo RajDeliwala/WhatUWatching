@@ -57,10 +57,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IOrderWatchList.cs" />
     <Compile Include="Contracts\IRepo.cs" />
     <Compile Include="Contracts\IWatchListService.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\OrderWatchList.cs" />
+    <Compile Include="Models\OrderWatchListItem.cs" />
     <Compile Include="Models\ShowModel.cs" />
     <Compile Include="Models\ShowSeason.cs" />
     <Compile Include="Models\WatchList.cs" />

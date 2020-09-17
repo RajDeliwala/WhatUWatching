@@ -52,7 +52,10 @@ namespace Show.WebUI
             container.RegisterType<IRepo<WatchList>, SQLRepository<WatchList>>();
             container.RegisterType<IRepo<WatchListItem>, SQLRepository<WatchListItem>>();
             container.RegisterType<IRepo<Customer>, SQLRepository<Customer>>();
+            container.RegisterType<IRepo<OrderWatchList>, SQLRepository<OrderWatchList>>();
+            container.RegisterType<IRepo<OrderWatchListItem>, SQLRepository<OrderWatchListItem>>();
             container.RegisterType<IWatchListService, WatchListService>();
+            container.RegisterType<IOrderWatchList, OrderWatchListService>();
         }
     }
 }
