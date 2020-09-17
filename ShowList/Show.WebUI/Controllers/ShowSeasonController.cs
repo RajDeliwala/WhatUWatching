@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Show.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ShowSeasonController : Controller
     {
         // Getting context

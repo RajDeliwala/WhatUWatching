@@ -11,6 +11,7 @@ using Show.DataAccess.InMemory;
 
 namespace Show.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ShowManagerController : Controller
     {
         // Getting context
