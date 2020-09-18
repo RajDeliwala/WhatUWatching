@@ -198,6 +198,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShowManagerController.cs" />
     <Compile Include="Controllers\ShowSeasonController.cs" />
+    <Compile Include="Controllers\UserWatchListController.cs" />
     <Compile Include="Controllers\WatchListController.cs" />
     <Compile Include="Controllers\WatchListManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -379,6 +380,9 @@
     <Content Include="Views\WatchListManager\Index.cshtml" />
     <Content Include="Views\WatchListManager\GetUpdateWatchList.cshtml" />
     <Content Include="Views\WatchListManager\WatchListItems.cshtml" />
+    <Content Include="Views\UserWatchList\Index.cshtml" />
+    <Content Include="Views\UserWatchList\UpdateOrder.cshtml" />
+    <Content Include="Views\UserWatchList\WatchListItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
